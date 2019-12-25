@@ -1,0 +1,110 @@
+#!/usr/bin/env node
+
+const program = require('commander')
+const download = require('download-git-repo')
+const inquirer = require('inquirer')
+const handlebars = require('handlebars')
+const progress = require('log-progress')
+const fs = require('fs')
+const chalk = require('chalk')
+
+const gitUrl = 'github:theajack/ebuild-template'
+const log = require('../lib/log')
+let date = new Date()
+
+/**
+ * Settings.
+ */
+
+function main() {
+  program.usage('<name>')
+
+  program.on('--help', () => {
+    log.n('  Examples:')
+    log.n()
+    log.n(chalk.gray('    # create a new project with an official template'))
+    log.n('    $ ebuild init <project-name>')
+    log.n()
+    log.n()
+  })
+
+  log.n()
+
+  program.parse(process.argv)
+
+  if (program.args.length < 1) {
+    return program.help()
+  } else {
+    init(program.args[0])
+  }
+}
+
+function start() {
+  progress.start({
+    title: 'Downloading ebuild template.',
+    ontick: function(value, percent) {
+      if (percent > 90) {
+        this.pause(value)
+      }
+    },
+    time: 100,
+    total: 199
+  })
+}
+
+function init(name) {
+  inquirer
+    .prompt([
+      {
+        type: 'input',
+        name: 'name',
+        default: name,
+        message: 'Input project name'
+      },
+      {
+        type: 'input',
+        name: 'description',
+        default: 'Ebuild project',
+        message: 'Input description'
+      },
+      {
+        type: 'input',
+        name: 'author',
+        default: 'author',
+        message: 'Input author name'
+      }
+    ])
+    .then(answers => {
+      answers.description = answers.description || 'Ebuild project'
+      answers.author = answers.author || 'author'
+      downloadProject(answers)
+    })
+}
+
+function downloadProject(answers) {
+  log.n()
+  start()
+
+  download(gitUrl, answers.name, err => {
+    if (progress.isPause()) {
+      progress.start()
+    }
+
+    const fileName = answers.name + '/package.json'
+    const content = fs.readFileSync(fileName).toString()
+    const result = handlebars.compile(content)(answers)
+    fs.writeFileSync(fileName, result)
+    if (err) {
+      progress.fail('Failed')
+      log.n()
+      log.red('Project creation failed')
+    } else {
+      progress.complete('Succeed')
+      log.n()
+      log.green('Project creation succeed! in ' + (new Date() - date) + ' ms.')
+    }
+    log.n()
+  })
+}
+
+main()

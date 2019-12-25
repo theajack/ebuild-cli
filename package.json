@@ -1,0 +1,32 @@
+{
+  "name": "ebuild-cli",
+  "version": "0.0.1",
+  "description": "A project for build a project easily",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theajack/ebuild-cli.git"
+  },
+  "keywords": [
+    "Build-project",
+    "Easy-build"
+  ],
+  "author": "theajack <contact@theajack.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/theajack/ebuild-cli/issues"
+  },
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "commander": "^4.0.1",
+    "download-git-repo": "^3.0.2",
+    "handlebars": "^4.5.3",
+    "inquirer": "^7.0.1",
+    "lite-server": "^2.5.4",
+    "log-progress": "^1.0.5"
+  },
+  "homepage": "https://github.com/theajack/ebuild-cli#readme"
+}

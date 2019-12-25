@@ -1,0 +1,10 @@
+#!/usr/bin/env node
+
+const server = require('lite-server');
+const chalk = require('chalk');
+
+console.log();
+console.log(chalk.green('--Running http server ...'));
+console.log();
+
+server.server();
