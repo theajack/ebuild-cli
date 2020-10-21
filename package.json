@@ -1,10 +1,15 @@
 {
   "name": "ebuild-cli",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A project for build a project easily",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "ebuild": "bin/ebuild",
+    "ebuild-init": "bin/ebuild-init",
+    "ebuild-run": "bin/ebuild-run"
   },
   "repository": {
     "type": "git",
