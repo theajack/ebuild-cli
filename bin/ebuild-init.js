@@ -12,6 +12,7 @@ const gitUrl = {
   'def': 'github:theajack/ebuild-template-light',
   'css': 'github:theajack/ebuild-template-css',
   'origin': 'github:theajack/ebuild-template',
+  'ts': 'github:theajack/ts-demo',
 }
 const log = require('../lib/log')
 const {formatName} = require('../lib/util')
@@ -88,6 +89,9 @@ function init(name) {
         },{
           name: 'css (With css and less)',
           value: 'css'
+        },{
+          name: 'typescript',
+          value: 'ts'
         },{
           name: 'origin (Old version)',
           value: 'origin'
