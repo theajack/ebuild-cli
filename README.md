@@ -1,6 +1,6 @@
 # ebuild-cli
 
-### 🚀一键搭建webpack、babel、eslint、commitlint、typescript等开发环境
+### 🚀一键搭建webpack、babel、eslint、less、commitlint、typescript等开发环境
 
 ## 1. 安装：
 
@@ -16,9 +16,17 @@ npm i -g ebuild-cli
 ebuild init <项目名称>
 ```
 
-模式选择有三种
+```
+cd <项目名称>
+```
 
-附加功能启动一个开发服务器
+```
+npm install
+```
+
+----
+
+附加功能: 启动一个开发服务器
 
 ```
 ebuild run
