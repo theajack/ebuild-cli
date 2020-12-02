@@ -115,7 +115,7 @@ function downloadProject(answers) {
     
     render('package.json', answers);
 
-    if(mode !== 'origin'){
+    if(answers.mode !== 'origin'){
       render('webpack-config/build.js', answers);
     }
 
