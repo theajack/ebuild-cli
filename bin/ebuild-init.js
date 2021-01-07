@@ -31,13 +31,19 @@ const gits = {
     url: 'github:theajack/ebuild-template-vue',
     renderPackage: true,
     renderBuild: true,
-    name: 'vue (vue2.x + vue-router + react)',
+    name: 'vue (vue2.x + vue-router + vuex)',
+  },
+  'vue3': {
+    url: 'https://github.com/theajack/vue3-ts',
+    renderPackage: true,
+    renderBuild: true,
+    name: 'vue3 (vue3 + typescript + vue-router4 + vuex4)',
   },
   'react-ts': {
     url: 'github:theajack/react-ts',
     renderPackage: false,
     renderBuild: false,
-    name: 'react (react17 + typescript)',
+    name: 'react (react17 + typescript + redux)',
   },
   'origin': {
     url: 'github:theajack/ebuild-template',
