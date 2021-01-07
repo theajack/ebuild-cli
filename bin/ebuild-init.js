@@ -8,114 +8,146 @@ const progress = require('log-progress')
 const fs = require('fs')
 const chalk = require('chalk')
 
-const gitUrl = {
-  'def': 'github:theajack/ebuild-template-light',
-  'css': 'github:theajack/ebuild-template-css',
-  'origin': 'github:theajack/ebuild-template',
-  'ts': 'github:theajack/ts-demo',
+const gits = {
+  'def': {
+    url: 'github:theajack/ebuild-template-light',
+    renderPackage: true,
+    renderBuild: true,
+    name: 'light (Recommended, only pure js + webpack + babel)',
+  },
+  'css': {
+    url: 'github:theajack/ebuild-template-css',
+    renderPackage: true,
+    renderBuild: true,
+    name: 'css (With css and less)',
+  },
+  'ts': {
+    url: 'github:theajack/ts-demo',
+    renderPackage: false,
+    renderBuild: true,
+    name: 'typescript (With typescript)',
+  },
+  'vue': {
+    url: 'github:theajack/ebuild-template-vue',
+    renderPackage: true,
+    renderBuild: true,
+    name: 'vue (vue2.x + vue-router + react)',
+  },
+  'react-ts': {
+    url: 'github:theajack/react-ts',
+    renderPackage: false,
+    renderBuild: false,
+    name: 'react (react17 + typescript)',
+  },
+  'origin': {
+    url: 'github:theajack/ebuild-template',
+    renderPackage: true,
+    renderBuild: false,
+    name: 'origin (Old version. Not recommended)',
+  },
 }
+
+const choices = []
+
+for(let k in gits){
+  choices.push({
+    name: gits[k].name,
+    value: k
+  })
+}
+
 const log = require('../lib/log')
 const {formatName} = require('../lib/util')
-let date = new Date()
+let date = new Date() 
 
-/**
+/** 
  * Settings.
  */
 
 function main() {
-  program.usage('<name>')
+program.usage('<name>')
 
-  program.on('--help', () => {
-    log.n('  Examples:')
-    log.n()
-    log.n(chalk.gray('    # create a new project with an official template'))
-    log.n('    $ ebuild init <project-name>')
-    log.n()
-    log.n()
-  })
-
+program.on('--help', () => {
+  log.n('  Examples:')
   log.n()
+  log.n(chalk.gray('    # create a new project with an official template'))
+  log.n('    $ ebuild init <project-name>')
+  log.n()
+  log.n()
+})
 
-  program.parse(process.argv)
+log.n()
 
-  if (program.args.length < 1) {
-    return program.help()
-  } else {
-    init(program.args[0])
-  }
+program.parse(process.argv)
+
+if (program.args.length < 1) {
+  return program.help()
+} else {
+  init(program.args[0])
+}
 }
 
 function start() {
-  progress.start({
-    title: 'Downloading ebuild template.',
-    ontick: function(value, percent) {
-      if (percent > 90) {
-        this.pause(value)
-      }
-    },
-    time: 100,
-    total: 199
-  })
+progress.start({
+  title: 'Downloading ebuild template.',
+  ontick: function(value, percent) {
+    if (percent > 90) {
+      this.pause(value)
+    }
+  },
+  time: 100,
+  total: 199
+})
 }
 
 function init(name) {
-  inquirer
-    .prompt([
-      {
-        type: 'input',
-        name: 'name',
-        default: name,
-        message: 'Input project name'
-      },
-      {
-        type: 'input',
-        name: 'description',
-        default: 'Ebuild project',
-        message: 'Input description'
-      },
-      {
-        type: 'input',
-        name: 'author',
-        default: 'author',
-        message: 'Input author name'
-      },
-      {
-        type: 'list',
-        name: 'mode',
-        message: 'Choice mode',
-        choices: [{
-          name: 'default (Recommended)',
-          value: 'def'
-        },{
-          name: 'css (With css and less)',
-          value: 'css'
-        },{
-          name: 'typescript',
-          value: 'ts'
-        },{
-          name: 'origin (Old version)',
-          value: 'origin'
-        }]
-      }
-    ])
-    .then(answers => {
-      answers.libName = formatName(answers.name);
-      downloadProject(answers)
-    })
+inquirer
+  .prompt([
+    {
+      type: 'input',
+      name: 'name',
+      default: name,
+      message: 'Input project name'
+    },
+    {
+      type: 'input',
+      name: 'description',
+      default: 'Ebuild project',
+      message: 'Input description'
+    },
+    {
+      type: 'input',
+      name: 'author',
+      default: 'author',
+      message: 'Input author name'
+    },
+    {
+      type: 'list',
+      name: 'mode',
+      message: 'Choice mode',
+      choices
+    }
+  ])
+  .then(answers => {
+    answers.libName = formatName(answers.name);
+    downloadProject(answers)
+  })
 }
 
 function downloadProject(answers) {
   log.n()
   start()
-  let url = gitUrl[answers.mode]
-  download(url, answers.name, err => {
+  let object = gits[answers.mode]
+  download(object.url, answers.name, err => {
     if (progress.isPause()) {
       progress.start()
     }
-    
-    render('package.json', answers);
 
-    if(answers.mode !== 'origin'){
+    if(object.renderPackage){
+      render('package.json', answers);
+    }
+
+    if(object.renderBuild){
       render('webpack-config/build.js', answers);
     }
 
@@ -133,10 +165,10 @@ function downloadProject(answers) {
 }
 
 function render(file, answers){
-  const fileName = answers.name + '/' + file
-  const content = fs.readFileSync(fileName).toString()
-  const result = handlebars.compile(content)(answers)
-  fs.writeFileSync(fileName, result)
+const fileName = answers.name + '/' + file
+const content = fs.readFileSync(fileName).toString()
+const result = handlebars.compile(content)(answers)
+fs.writeFileSync(fileName, result)
 }
 
 main()
