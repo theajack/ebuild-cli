@@ -43,7 +43,7 @@ const gits = {
     url: 'github:theajack/react-ts',
     renderPackage: false,
     renderBuild: false,
-    name: 'react (react17 + typescript + redux)',
+    name: 'react (react17 + typescript + redux + sass)',
   },
   'origin': {
     url: 'github:theajack/ebuild-template',

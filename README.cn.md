@@ -1,6 +1,6 @@
 # ebuild-cli
 
-### 🚀 One-click build webpack, babel, eslint, less, commitlint, typescript, vue, react and other development environments
+### 🚀一键搭建webpack、babel、eslint、less、commitlint、typescript、vue、react等开发环境
 
 <p>
     <a href="https://www.npmjs.com/package/ebuild-cli"><img src="https://img.shields.io/npm/v/ebuild-cli.svg" alt="Version"></a>
@@ -10,17 +10,17 @@
     <a href="https://github.com/theajack/ebuild-cli/issues"><img src="https://img.shields.io/github/issues-closed/theajack/ebuild-cli.svg" alt="issue"></a>
 </p>
 
-[中文](https://github.com/theajack/ebuild-cli/blob/master/README.cn.md)
+[English](https://github.com/theajack/ebuild-cli/blob/master/README.md)
 
-## 1. Installation:
+## 1. 安装：
 
 ```
 npm i -g ebuild-cli
 ```
 
-## 2. Initialization
+## 2. 初始化
 
-Run the following command in the directory where you want to create the project
+在你希望创建项目的目录下运行一下命令
 
 ```
 ebuild init <project name>
@@ -30,19 +30,19 @@ cd <project name>
 npm install
 ```
 
-There are seven templates to choose from during the installation process
+安装过程中有以下七个模板可供选择
 
-1. Default mode: including webpack, babel, eslint, commitlint
-2. css mode: default mode + css and less support
-3. typescript: default mode + ts support
+1. 默认模式：包含webpack、babel、eslint、commitlint
+2. css模式：默认模式 + css和less支持
+3. typescript：默认模式 + ts 支持
 4. vue: vue2.x + vue-router + vuex
 5. vue3: vue3 + typescript + vue-router4 + vuex4
 6. react: react17 + typescript + redux + sass
-7. Original mode: not recommended
+7. 原始模式：不推荐
 
 ----
 
-Additional function: start a development server
+附加功能: 启动一个开发服务器
 
 ```
 ebuild run
@@ -50,6 +50,6 @@ ebuild run
 
 ## QA
 
-If you encounter C:\xxx\Roaming\npm\ebuild.ps1 on windos, it is forbidden to run scripts on this system.
+如在windos上遇到 C:\xxx\Roaming\npm\ebuild.ps1，因为在此系统上禁止运行脚本。
 
-Please CMD execute set-ExecutionPolicy RemoteSigned
+请CMD执行 set-ExecutionPolicy RemoteSigned
