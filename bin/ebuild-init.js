@@ -45,6 +45,12 @@ const gits = {
     renderBuild: false,
     name: 'react (react17 + typescript + redux + sass)',
   },
+  'node-es6': {
+    url: 'github:theajack/node-es6-demo',
+    renderPackage: false,
+    renderBuild: false,
+    name: 'node es6 (node + express + es6 + webpack)',
+  },
   'origin': {
     url: 'github:theajack/ebuild-template',
     renderPackage: true,

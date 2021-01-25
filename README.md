@@ -30,7 +30,7 @@ cd <project name>
 npm install
 ```
 
-There are seven templates to choose from during the installation process
+There are some templates to choose from during the installation process
 
 1. Default mode: including webpack, babel, eslint, commitlint
 2. css mode: default mode + css and less support
@@ -38,7 +38,8 @@ There are seven templates to choose from during the installation process
 4. vue: vue2.x + vue-router + vuex
 5. vue3: vue3 + typescript + vue-router4 + vuex4
 6. react: react17 + typescript + redux + sass
-7. Original mode: not recommended
+7. node-es6: node + express + es6 + webpac
+8. Original mode: not recommended
 
 ----
 

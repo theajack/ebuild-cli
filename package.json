@@ -1,6 +1,6 @@
 {
   "name": "ebuild-cli",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "A project for build a project easily",
   "main": "index.js",
   "scripts": {

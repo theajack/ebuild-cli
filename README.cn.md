@@ -30,7 +30,7 @@ cd <project name>
 npm install
 ```
 
-安装过程中有以下七个模板可供选择
+安装过程中有以下模板可供选择
 
 1. 默认模式：包含webpack、babel、eslint、commitlint
 2. css模式：默认模式 + css和less支持
@@ -38,7 +38,8 @@ npm install
 4. vue: vue2.x + vue-router + vuex
 5. vue3: vue3 + typescript + vue-router4 + vuex4
 6. react: react17 + typescript + redux + sass
-7. 原始模式：不推荐
+7. node-es6: node + express + es6 + webpac
+8. 原始模式：不推荐
 
 ----
 
