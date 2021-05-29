@@ -35,11 +35,12 @@ There are some templates to choose from during the installation process
 1. Default mode: including webpack, babel, eslint, commitlint
 2. css mode: default mode + css and less support
 3. typescript: default mode + ts support
-4. vue: vue2.x + vue-router + vuex
-5. vue3: vue3 + typescript + vue-router4 + vuex4
-6. react: react17 + typescript + redux + sass
-7. node-es6: node + express + es6 + webpac
-8. Original mode: not recommended
+4. npm package version: typescript + less + jest + webpack
+5. vue: vue2.x + vue-router + vuex
+6. vue3: vue3 + typescript + vue-router4 + vuex4
+7. react: react17 + typescript + redux + sass
+8. node-es6: node + express + es6 + webpac
+9. Original mode: not recommended
 
 ----
 

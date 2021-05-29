@@ -31,7 +31,7 @@ const gits = {
     url: 'github:theajack/ebuild-template-npm',
     renderPackage: false,
     renderBuild: false,
-    name: 'npm package (typescript + less + webpack)',
+    name: 'npm package (typescript + less + jest + webpack)',
   },
   'vue': {
     url: 'github:theajack/ebuild-template-vue',
