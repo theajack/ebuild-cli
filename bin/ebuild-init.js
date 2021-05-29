@@ -27,6 +27,12 @@ const gits = {
     renderBuild: true,
     name: 'typescript (With typescript)',
   },
+  'npm package': {
+    url: 'github:theajack/ebuild-template-npm',
+    renderPackage: false,
+    renderBuild: false,
+    name: 'npm package (typescript + less + webpack)',
+  },
   'vue': {
     url: 'github:theajack/ebuild-template-vue',
     renderPackage: true,
