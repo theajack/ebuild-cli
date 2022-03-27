@@ -33,6 +33,12 @@ const gits = {
     renderBuild: false,
     name: 'npm package (typescript + less + jest + webpack)',
   },
+  'npm package plus': {
+    url: 'github:theajack/npm-ts-template',
+    renderPackage: true,
+    renderBuild: true,
+    name: 'npm package (typescript + webpack)(buildauto)',
+  },
   'vue': {
     url: 'github:theajack/ebuild-template-vue',
     renderPackage: true,
@@ -166,7 +172,7 @@ function downloadProject(answers) {
     }
 
     if(object.renderBuild){
-      render('webpack-config/build.js', answers);
+      render(object.buildFilePath || 'webpack-config/build.js', answers);
     }
 
     if (err) {

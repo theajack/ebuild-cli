@@ -36,11 +36,12 @@ npm install
 2. css模式：默认模式 + css和less支持
 3. typescript：默认模式 + ts 支持
 4. npm包定制版本: typescript + less + jest + webpack
-5. vue: vue2.x + vue-router + vuex
-6. vue3: vue3 + typescript + vue-router4 + vuex4
-7. react: react17 + typescript + redux + sass
-8. node-es6: node + express + es6 + webpac
-9. 原始模式：不推荐
+5. npm包定制版本2: typescript + webpack, 自动生成toc和npm目录
+6. vue: vue2.x + vue-router + vuex
+7. vue3: vue3 + typescript + vue-router4 + vuex4
+8. react: react17 + typescript + redux + sass
+9. node-es6: node + express + es6 + webpac
+10. 原始模式：不推荐
 
 ----
 
