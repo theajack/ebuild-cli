@@ -1,6 +1,6 @@
 # ebuild-cli
 
-### 🚀一键搭建webpack、babel、eslint、less、commitlint、typescript、vue、react等开发环境
+### 🚀一键搭建webpack、babel、eslint、less、commitlint、typescript、vue、react、lerna等开发环境
 
 <p>
     <a href="https://www.npmjs.com/package/ebuild-cli"><img src="https://img.shields.io/npm/v/ebuild-cli.svg" alt="Version"></a>
@@ -37,19 +37,34 @@ npm install
 3. typescript：默认模式 + ts 支持
 4. npm包定制版本: typescript + less + jest + webpack
 5. npm包定制版本2: typescript + webpack, 自动生成toc和npm目录
+6. lerna: lerna monorepo project (typescript + lerna + rollup)
 6. vue: vue2.x + vue-router + vuex
 7. vue3: vue3 + typescript + vue-router4 + vuex4
 8. react: react17 + typescript + redux + sass
 9. node-es6: node + express + es6 + webpac
 10. 原始模式：不推荐
 
-----
+## 3. ebuild run
 
-附加功能: 启动一个开发服务器
+启动一个开发服务器
 
 ```
 ebuild run
 ```
+
+## 4. ebuild count
+
+计算当前项目代码行
+
+```
+ebuild count
+```
+
+使用详情与配置文件请参考 [count-code-line](https://github.com/theajack/count-code-line)
+
+## 5. ebuild gen
+
+在当前项目生成一些工具
 
 ## QA
 

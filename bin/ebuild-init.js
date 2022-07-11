@@ -27,12 +27,6 @@ const gits = {
         renderBuild: true,
         name: 'typescript (With typescript)',
     },
-    'lerna': {
-        url: 'github:theajack/ebuild-template-lerna',
-        renderPackage: false,
-        renderBuild: false,
-        name: 'lerna monorepo project (typescript + lerna + rollup)',
-    },
     'npm package': {
         url: 'github:theajack/ebuild-template-npm',
         renderPackage: false,
@@ -44,6 +38,12 @@ const gits = {
         renderPackage: true,
         renderBuild: true,
         name: 'npm package (typescript + webpack)(buildauto)',
+    },
+    'lerna': {
+        url: 'github:theajack/ebuild-template-lerna',
+        renderPackage: false,
+        renderBuild: false,
+        name: 'lerna monorepo project (typescript + lerna + rollup)',
     },
     'vue': {
         url: 'github:theajack/ebuild-template-vue',
