@@ -1,8 +1,8 @@
 // const fs = require('fs');
 const path = require('path');
 const copydir = require('copy-dir');
-const {writeJsonIntoFile} = require('../scripts/eb-bin/utils');
- 
+
+const {writeJsonIntoFile} = require('../scripts/scripts/ebuild/utils');
 
 function main () {
     const currentPath = process.cwd();
@@ -17,13 +17,13 @@ function main () {
     );
 
     copydir.sync(
-        path.resolve(binPath, '../scripts/eb-bin'),
-        path.resolve(currentPath, './scripts/ebuild'),
+        path.resolve(binPath, '../scripts/scripts'),
+        path.resolve(currentPath, './scripts'),
     );
       
     const pkg = require(path.resolve(currentPath, './package.json'));
 
-    if (!pkg) pkg.scripts = {};
+    if (!pkg.scripts) pkg.scripts = {};
 
     pkg.scripts['eb:build'] = 'node ./scripts/ebuild/build.js';
     pkg.scripts['eb:docs'] = 'node ./scripts/ebuild/build-docs.js';

@@ -1,5 +1,5 @@
 
-const {resolveRootPath, writeStringIntoFile, exec} = require('../eb-utils');
+const {resolveRootPath, writeStringIntoFile, exec} = require('./utils');
 
 const map = require(resolveRootPath('scripts/dependent-graph.json'));
 
