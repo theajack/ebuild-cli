@@ -66,11 +66,19 @@ function writeJsonIntoFile (json, filePath) {
     fs.writeFileSync(filePath, JSON.stringify(json, null, 4), 'utf8');
 }
 
+function writeJsonIntoRootFile (json, filePath) {
+    writeJsonIntoFile(json, resolveRootPath(filePath));
+}
+
 function writeStringIntoFile (str, filePath, append = false) {
     append ?
         fs.appendFileSync(filePath, str, 'utf8') :
         fs.writeFileSync(filePath, str, 'utf8');
     
+}
+
+function writeStringIntoRootFile (str, filePath, append) {
+    writeStringIntoFile(str, resolveRootPath(filePath), append);
 }
 
 async function exec (cmd) {
@@ -89,6 +97,32 @@ async function exec (cmd) {
     });
 }
 
+function buildPackageJson (extract = {}) {
+    const pkg = require(resolveRootPath('package.json'));
+
+    const attrs = ['name', 'version', 'description', 'main', 'unpkg', 'jsdelivr', 'typings', 'repository', 'keywords', 'author', 'license', 'bugs', 'homepage', 'dependencies'];
+
+    const npmPkg = {};
+
+    attrs.forEach(key => {
+        if (pkg[key]) {
+            npmPkg[key] = pkg[key];
+        }
+    });
+
+    let filePath = 'npm/package.json';
+
+    for (const key in extract) {
+        if (key === '$path') {
+            filePath = extract[key];
+        } else {
+            npmPkg[key] = extract[key];
+        }
+    }
+
+    writeJsonIntoFile(resolveRootPath(filePath), npmPkg);
+}
+
 module.exports = {
     exec,
     extrackSinglePackageInfo,
@@ -100,4 +134,7 @@ module.exports = {
     initMonorepoSinglePackageInfo,
     writeJsonIntoFile,
     writeStringIntoFile,
+    writeJsonIntoRootFile,
+    writeStringIntoRootFile,
+    buildPackageJson,
 };

@@ -1,6 +1,6 @@
 {
     "name": "ebuild-cli",
-    "version": "0.2.1",
+    "version": "0.2.2",
     "description": "A project for build a project easily",
     "main": "index.js",
     "scripts": {
@@ -21,7 +21,7 @@
         "Build-project",
         "Easy-build"
     ],
-    "author": "theajack <contact@theajack.com>",
+    "author": "theajack <theajack@qq.com>",
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/theajack/ebuild-cli/issues"

@@ -1,4 +1,8 @@
-## 0.2.1 todo
+## 0.2.2
+
+1. 增加buildPackageJson
+
+## 0.2.1
 
 1. 修复gen复制问题
 2. 修复package scripts不存在的报错问题

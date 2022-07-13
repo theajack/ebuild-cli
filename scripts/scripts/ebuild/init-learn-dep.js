@@ -1,7 +1,7 @@
 
 const {resolveRootPath, writeStringIntoFile, exec} = require('./utils');
 
-const map = require(resolveRootPath('scripts/dependent-graph.json'));
+const map = require(resolveRootPath('scripts/ebuild/dependent-graph.json'));
 
 function buildLearnAdd () {
     const addArr = [];
@@ -16,7 +16,7 @@ function buildLearnAdd () {
         });
     }
 
-    writeStringIntoFile(addArr.join('\n'), 'scripts/lerna-add.txt');
+    writeStringIntoFile(addArr.join('\n'), 'scripts/ebuild/lerna-add.txt');
 }
 
 async function addDep (dep, key, success) {
