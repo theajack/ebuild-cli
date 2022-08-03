@@ -1,6 +1,6 @@
 {
     "name": "ebuild-cli",
-    "version": "0.2.2",
+    "version": "0.2.3",
     "description": "A project for build a project easily",
     "main": "index.js",
     "scripts": {
@@ -42,5 +42,8 @@
         "@babel/core": "^7.6.4",
         "babel-eslint": "^10.0.3",
         "eslint": "^6.5.1"
+    },
+    "publishConfig": {
+        "registry": "https://registry.npmjs.org"
     }
 }

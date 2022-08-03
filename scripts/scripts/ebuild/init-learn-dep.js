@@ -1,3 +1,8 @@
+/*
+ * @Author: tackchen
+ * @Date: 2022-08-03 21:32:38
+ * @Description: Coding something
+ */
 
 const {resolveRootPath, writeStringIntoFile, exec} = require('./utils');
 
@@ -16,7 +21,7 @@ function buildLearnAdd () {
         });
     }
 
-    writeStringIntoFile(addArr.join('\n'), 'scripts/ebuild/lerna-add.txt');
+    writeStringIntoFile('scripts/ebuild/lerna-add.txt', addArr.join('\n'));
 }
 
 async function addDep (dep, key, success) {

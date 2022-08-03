@@ -54,31 +54,31 @@ function initMonorepoSinglePackageInfo (dir, isDev = false) {
     pkg.publishConfig = {
         registry: 'https://registry.npmjs.org/',
     };
-    writeJsonIntoFile(pkg, packagePath);
+    writeJsonIntoFile(packagePath, pkg);
     fs.copyFileSync(resolveRootPath('README.md'), resolvePacakgePath(`${dir}/README.md`));
 
     const tsconfig = require(resolveRootPath('tsconfig.json'));
     tsconfig.include = ['src/**/*'];
-    writeJsonIntoFile(tsconfig, resolvePacakgePath(`${dir}/tsconfig.json`));
+    writeJsonIntoFile(resolvePacakgePath(`${dir}/tsconfig.json`), tsconfig);
 }
 
-function writeJsonIntoFile (json, filePath) {
-    fs.writeFileSync(filePath, JSON.stringify(json, null, 4), 'utf8');
+function writeJsonIntoFile (filePath, json) {
+    fs.writeFileSync(transfromFilePath(filePath), JSON.stringify(json, null, 4), 'utf8');
 }
 
-function writeJsonIntoRootFile (json, filePath) {
-    writeJsonIntoFile(json, resolveRootPath(filePath));
-}
-
-function writeStringIntoFile (str, filePath, append = false) {
+function writeStringIntoFile (filePath, str, append = false) {
+    filePath = transfromFilePath(filePath);
     append ?
         fs.appendFileSync(filePath, str, 'utf8') :
         fs.writeFileSync(filePath, str, 'utf8');
     
 }
 
-function writeStringIntoRootFile (str, filePath, append) {
-    writeStringIntoFile(str, resolveRootPath(filePath), append);
+function transfromFilePath (filePath) {
+    if (filePath[0] === '@') {
+        return resolveRootPath(filePath.substr(1));
+    }
+    return filePath;
 }
 
 async function exec (cmd) {
@@ -110,7 +110,7 @@ function buildPackageJson (extract = {}) {
         }
     });
 
-    let filePath = 'npm/package.json';
+    let filePath = '@npm/package.json';
 
     for (const key in extract) {
         if (key === '$path') {
@@ -120,8 +120,50 @@ function buildPackageJson (extract = {}) {
         }
     }
 
-    writeJsonIntoFile(resolveRootPath(filePath), npmPkg);
+    writeJsonIntoFile(filePath, npmPkg);
 }
+
+function copyFile (src, dest) {
+    fs.copyFileSync(transfromFilePath(src), transfromFilePath(dest));
+}
+
+function readFile (filePath) {
+    return fs.readFileSync(transfromFilePath(filePath), {encoding: 'utf-8'});
+}
+
+function replaceFileContent (filePath, regExp, replacement) {
+    const content = readFile(filePath);
+    const newContent = content.replace(regExp, replacement);
+    writeStringIntoFile(filePath, newContent);
+}
+
+function mkdirDir (filePath) {
+    filePath = transfromFilePath(filePath);
+    if (!fs.existsSync(filePath)) {
+        console.log('mkdirSync', filePath);
+        fs.mkdirSync(filePath);
+    }
+}
+  
+function clearDirectory (dirPath) {
+    dirPath = transfromFilePath(dirPath);
+    if (!fs.existsSync(dirPath)) return;
+    clearDirectoryBase(dirPath);
+}
+  
+function clearDirectoryBase (dirPath) {
+    const files = fs.readdirSync(dirPath);
+    files.forEach((file) => {
+        const filePath = `${dirPath}/${file}`;
+        const stat = fs.statSync(filePath);
+        if (stat.isDirectory()) {
+            clearDirectoryBase(filePath);
+            fs.rmdirSync(filePath);
+        } else {
+            fs.unlinkSync(filePath);
+        }
+    });
+};
 
 module.exports = {
     exec,
@@ -134,7 +176,11 @@ module.exports = {
     initMonorepoSinglePackageInfo,
     writeJsonIntoFile,
     writeStringIntoFile,
-    writeJsonIntoRootFile,
-    writeStringIntoRootFile,
     buildPackageJson,
+    transfromFilePath,
+    copyFile,
+    clearDirectory,
+    mkdirDir,
+    replaceFileContent,
+    readFile,
 };

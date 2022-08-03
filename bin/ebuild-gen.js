@@ -1,3 +1,8 @@
+/*
+ * @Author: tackchen
+ * @Date: 2022-08-03 21:33:05
+ * @Description: Coding something
+ */
 // const fs = require('fs');
 const path = require('path');
 const copydir = require('copy-dir');
@@ -34,7 +39,7 @@ function main () {
     pkg.scripts['eb:mono-init-pkg-dev'] = 'node ./scripts/ebuild/init-packages-info.js dev';
     pkg.scripts['eb:mono-dep'] = 'node ./scripts/ebuild/init-learn-dep.js';
 
-    writeJsonIntoFile(pkg, path.resolve(currentPath, './package.json'));
+    writeJsonIntoFile(path.resolve(currentPath, './package.json', pkg));
 }
 
 main();

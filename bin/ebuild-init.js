@@ -45,6 +45,12 @@ const gits = {
         renderBuild: false,
         name: 'lerna monorepo project (typescript + lerna + rollup)',
     },
+    'rollup': {
+        url: 'github:theajack/ebuild-template-rollup',
+        renderPackage: false,
+        renderBuild: false,
+        name: 'rollup npm project (typescript + rollup + esbuild)',
+    },
     'vue': {
         url: 'github:theajack/ebuild-template-vue',
         renderPackage: true,
