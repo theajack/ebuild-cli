@@ -1,3 +1,12 @@
+<!--
+ * @Author: tackchen
+ * @Date: 2022-09-30 23:25:39
+ * @Description: Coding something
+-->
+## 0.2.3
+
+1. 增加 rollup+esbuild 模式支持
+
 ## 0.2.2
 
 1. 增加buildPackageJson

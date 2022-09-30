@@ -1,3 +1,8 @@
+<!--
+ * @Author: tackchen
+ * @Date: 2022-09-30 23:25:39
+ * @Description: Coding something
+-->
 # ebuild-cli
 
 ### 🚀 One-click to build development environments such as webpack, babel, eslint, less, commitlint, typescript, vue, react, lerna etc.
@@ -38,11 +43,12 @@ The following templates are available during installation
 4. Custom version of npm package: typescript + less + jest + webpack
 5. npm package customization version 2: typescript + webpack, automatically generate toc and npm directories
 6. lerna: lerna monorepo project (typescript + lerna + rollup)
-6. vue: vue2.x + vue-router + vuex
-7. vue3: vue3 + typescript + vue-router4 + vuex4
-8. react: react17 + typescript + redux + sass
-9. node-es6: node + express + es6 + webpac
-10. Raw mode: Not recommended
+7. rollup: rollup npm project (ts + rollup + esbuild + github workflow)
+8. vue: vue2.x + vue-router + vuex
+9. vue3: vue3 + typescript + vue-router4 + vuex4
+10. react: react17 + typescript + redux + sass
+11. node-es6: node + express + es6 + webpac
+12. Raw mode: Not recommended
 
 ## 3. ebuild run
 

@@ -1,3 +1,8 @@
+<!--
+ * @Author: tackchen
+ * @Date: 2022-09-30 23:25:39
+ * @Description: Coding something
+-->
 # ebuild-cli
 
 ### 🚀一键搭建webpack、babel、eslint、less、commitlint、typescript、vue、react、lerna等开发环境
@@ -38,11 +43,12 @@ npm install
 4. npm包定制版本: typescript + less + jest + webpack
 5. npm包定制版本2: typescript + webpack, 自动生成toc和npm目录
 6. lerna: lerna monorepo project (typescript + lerna + rollup)
-6. vue: vue2.x + vue-router + vuex
-7. vue3: vue3 + typescript + vue-router4 + vuex4
-8. react: react17 + typescript + redux + sass
-9. node-es6: node + express + es6 + webpac
-10. 原始模式：不推荐
+7. rollup: rollup npm project (ts + rollup + esbuild + github workflow)
+8. vue: vue2.x + vue-router + vuex
+9. vue3: vue3 + typescript + vue-router4 + vuex4
+10. react: react17 + typescript + redux + sass
+11. node-es6: node + express + es6 + webpac
+12. 原始模式：不推荐
 
 ## 3. ebuild run
 
