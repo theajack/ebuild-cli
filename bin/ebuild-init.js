@@ -9,47 +9,53 @@ const fs = require('fs');
 const chalk = require('chalk');
 
 const gits = {
-    'def': {
-        url: 'github:theajack/ebuild-template-light',
-        renderPackage: true,
-        renderBuild: true,
-        name: 'light (Recommended, only pure js + webpack + babel)',
-    },
-    'css': {
-        url: 'github:theajack/ebuild-template-css',
-        renderPackage: true,
-        renderBuild: true,
-        name: 'css (With css and less)',
-    },
-    'ts': {
-        url: 'github:theajack/ts-demo',
-        renderPackage: false,
-        renderBuild: true,
-        name: 'typescript (With typescript)',
-    },
-    'npm package': {
-        url: 'github:theajack/ebuild-template-npm',
-        renderPackage: false,
-        renderBuild: false,
-        name: 'npm package (typescript + less + jest + webpack)',
-    },
-    'npm package plus': {
-        url: 'github:theajack/npm-ts-template',
-        renderPackage: true,
-        renderBuild: true,
-        name: 'npm package (typescript + webpack)(buildauto)',
-    },
-    'lerna': {
-        url: 'github:theajack/ebuild-template-lerna',
-        renderPackage: false,
-        renderBuild: false,
-        name: 'lerna monorepo project (typescript + lerna + rollup)',
-    },
     'rollup': {
         url: 'github:theajack/ebuild-template-rollup',
         renderPackage: false,
         renderBuild: false,
         name: 'rollup npm project (typescript + rollup + esbuild)',
+    },
+    'lerna monorepo': {
+        url: 'github:theajack/ebuild-template-lerna',
+        renderPackage: false,
+        renderBuild: false,
+        name: 'lerna monorepo project (typescript + lerna + rollup)',
+    },
+    'webpack': {
+        url: 'github:theajack/ebuild-template-light',
+        renderPackage: true,
+        renderBuild: true,
+        name: 'light (Recommended, only pure js + webpack + babel)',
+    },
+    'sener': {
+        url: 'git@github.com:theajack/sener-best-practice.git',
+        renderPackage: false,
+        renderBuild: false,
+        name: 'Sener http server project best practices',
+    },
+    'webpack css': {
+        url: 'github:theajack/ebuild-template-css',
+        renderPackage: true,
+        renderBuild: true,
+        name: 'css (With css and less)',
+    },
+    'webpack ts': {
+        url: 'github:theajack/ts-demo',
+        renderPackage: false,
+        renderBuild: true,
+        name: 'typescript (With typescript)',
+    },
+    'npm package v2': {
+        url: 'github:theajack/npm-ts-template',
+        renderPackage: true,
+        renderBuild: true,
+        name: 'webpack npm package (typescript + webpack)(buildauto)',
+    },
+    'npm package v1': {
+        url: 'github:theajack/ebuild-template-npm',
+        renderPackage: false,
+        renderBuild: false,
+        name: 'webpack npm package (typescript + less + jest + webpack)',
     },
     'vue': {
         url: 'github:theajack/ebuild-template-vue',
@@ -170,6 +176,16 @@ function init (name) {
         });
 }
 
+/**
+ * 
+ * @param {{
+ *  name: string,
+ *  description: string,
+ *  author: string,
+ *  mode: string,
+ *  libName: string,
+ * }} answers 
+ */
 function downloadProject (answers) {
     log.n();
     start();
