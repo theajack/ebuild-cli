@@ -1,12 +1,11 @@
 #!/usr/bin/env node
 
 const program = require('commander');
-const download = require('download-git-repo');
 const inquirer = require('inquirer');
-const handlebars = require('handlebars');
 const progress = require('log-progress');
-const fs = require('fs');
 const chalk = require('chalk');
+const {render} = require('./lib/download');
+const download = require('download-git-repo');
 
 const gits = {
     'rollup': {
@@ -27,12 +26,6 @@ const gits = {
         renderBuild: true,
         name: 'light (Recommended, only pure js + webpack + babel)',
     },
-    'sener': {
-        url: 'git@github.com:theajack/sener-best-practice.git',
-        renderPackage: false,
-        renderBuild: false,
-        name: 'Sener http server project best practices',
-    },
     'webpack css': {
         url: 'github:theajack/ebuild-template-css',
         renderPackage: true,
@@ -44,6 +37,12 @@ const gits = {
         renderPackage: false,
         renderBuild: true,
         name: 'typescript (With typescript)',
+    },
+    'sener': {
+        url: 'github:theajack/sener-best-practice',
+        renderPackage: false,
+        renderBuild: false,
+        name: 'Sener http server project best practices',
     },
     'npm package v2': {
         url: 'github:theajack/npm-ts-template',
@@ -64,7 +63,7 @@ const gits = {
         name: 'vue (vue2.x + vue-router + vuex)',
     },
     'vue3': {
-        url: 'https://github.com/theajack/vue3-ts',
+        url: 'github:theajack/vue3-ts',
         renderPackage: true,
         renderBuild: true,
         name: 'vue3 (vue3 + typescript + vue-router4 + vuex4)',
@@ -129,6 +128,56 @@ function main () {
     }
 }
 
+
+function init (name) {
+    let url = '';
+    if (name.includes('/')) {
+        url = `github:${name}`;
+        name = name.substr(name.lastIndexOf('/') + 1);
+    }
+
+    const options = [
+        {
+            type: 'input',
+            name: 'name',
+            default: name,
+            message: 'Input project name'
+        },
+        {
+            type: 'input',
+            name: 'description',
+            default: 'Ebuild project',
+            message: 'Input description'
+        },
+        {
+            type: 'input',
+            name: 'author',
+            default: 'author',
+            message: 'Input author name'
+        }
+    ];
+
+    if (!url) {
+        options.push({
+            type: 'list',
+            name: 'mode',
+            message: 'Choice mode',
+            choices
+        });
+    }
+
+    inquirer.prompt().then(answers => {
+        answers.libName = formatName(answers.name);
+        const object = (!url) ? gits[answers.mode] : {
+            url,
+            renderPackage: true,
+            renderBuild: false,
+            name,
+        };
+        downloadProject(answers, object);
+    });
+}
+
 function start () {
     progress.start({
         title: 'Downloading ebuild template.',
@@ -141,55 +190,19 @@ function start () {
         total: 199
     });
 }
-
-function init (name) {
-    inquirer
-        .prompt([
-            {
-                type: 'input',
-                name: 'name',
-                default: name,
-                message: 'Input project name'
-            },
-            {
-                type: 'input',
-                name: 'description',
-                default: 'Ebuild project',
-                message: 'Input description'
-            },
-            {
-                type: 'input',
-                name: 'author',
-                default: 'author',
-                message: 'Input author name'
-            },
-            {
-                type: 'list',
-                name: 'mode',
-                message: 'Choice mode',
-                choices
-            }
-        ])
-        .then(answers => {
-            answers.libName = formatName(answers.name);
-            downloadProject(answers);
-        });
-}
-
 /**
- * 
+ *
  * @param {{
  *  name: string,
  *  description: string,
  *  author: string,
  *  mode: string,
  *  libName: string,
- * }} answers 
+ * }} answers
  */
-function downloadProject (answers) {
+function downloadProject (answers, object) {
     log.n();
     start();
-    const object = gits[answers.mode];
     download(object.url, answers.name, err => {
         if (progress.isPause()) {
             progress.start();
@@ -214,13 +227,6 @@ function downloadProject (answers) {
         }
         log.n();
     });
-}
-
-function render (file, answers) {
-    const fileName = answers.name + '/' + file;
-    const content = fs.readFileSync(fileName).toString();
-    const result = handlebars.compile(content)(answers);
-    fs.writeFileSync(fileName, result);
 }
 
 main();
