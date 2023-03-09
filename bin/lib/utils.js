@@ -9,7 +9,7 @@ const {writeJsonIntoFile} = require('../../scripts/scripts/ebuild/utils');
 const count = require('count-code-line');
 
 const server = require('lite-server');
-const pkg = require('../lib/getPackage');
+const pkg = require('../../lib/getPackage');
 const execSync = require('child_process').execSync;
 
 function gen () {

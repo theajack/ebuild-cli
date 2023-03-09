@@ -42,10 +42,14 @@ function download (url, {
 * }} answers
 */
 function render (file, answers) {
-    const fileName = answers.name + '/' + file;
-    const content = fs.readFileSync(fileName).toString();
-    const result = handlebars.compile(content)(answers);
-    fs.writeFileSync(fileName, result);
+    try {
+        const fileName = answers.name + '/' + file;
+        const content = fs.readFileSync(fileName).toString();
+        const result = handlebars.compile(content)(answers);
+        fs.writeFileSync(fileName, result);
+    } catch (err) {
+        
+    }
 }
 
 module.exports = {
