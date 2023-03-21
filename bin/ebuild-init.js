@@ -166,7 +166,7 @@ function init (name) {
         });
     }
 
-    inquirer.prompt().then(answers => {
+    inquirer.prompt(options).then(answers => {
         answers.libName = formatName(answers.name);
         const object = (!url) ? gits[answers.mode] : {
             url,
