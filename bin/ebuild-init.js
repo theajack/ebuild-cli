@@ -20,6 +20,12 @@ const gits = {
         renderBuild: false,
         name: 'lerna monorepo project (typescript + lerna + rollup)',
     },
+    'vite': {
+        url: 'github:theajack/ebuild-vite-vue3',
+        renderPackage: false,
+        renderBuild: false,
+        name: 'Vite (vite + vue3 + vue-router + pinia + ts)',
+    },
     'webpack': {
         url: 'github:theajack/ebuild-template-light',
         renderPackage: true,
