@@ -34,24 +34,25 @@ ebuild init <project name>
 
 cd <project name>
 
-npm install
+pnpm install
 ```
 
 The following templates are available for selection during installation
 
 1. rollup: rollup npm project (ts + rollup + esbuild + github workflow)
 2. lerna: lerna monorepo project (typescript + lerna + rollup)
-3. webpack: Contains webpack, babel, eslint, commitlint
-4. webpack css mode: default mode + css and less support
-5. webpack typescript: default mode + ts support
-6. sener: the best practice of sener-based http service
-7. Npm package customization version 2: typescript + webpack, automatically generate toc and npm directories
-8. Customized version of npm package: typescript + less + jest + webpack
-9. vue: vue2.x + vue-router + vuex
-10. vue3: vue3 + typescript + vue-router4 + vuex4
-11. react: react17 + typescript + redux + sass
-12. node-es6: node + express + es6 + webpac
-13. Raw mode: not recommended
+3. vite: Vite project (vite + vue3 + vue-router + pinia + ts)
+4. webpack: Contains webpack, babel, eslint, commitlint
+5. webpack css mode: default mode + css and less support
+6. webpack typescript: default mode + ts support
+7. sener: the best practice of sener-based http service
+8. Npm package customization version 2: typescript + webpack, automatically generate toc and npm directories
+9. Customized version of npm package: typescript + less + jest + webpack
+10. vue: vue2.x + vue-router + vuex
+11. vue3: vue3 + typescript + vue-router4 + vuex4
+12. react: react17 + typescript + redux + sass
+13. node-es6: node + express + es6 + webpac
+14. Raw mode: not recommended
 
 ### 2.1 Using the github repository
 

@@ -34,24 +34,25 @@ ebuild init <project name>
 
 cd <project name>
 
-npm install
+pnpm install
 ```
 
 安装过程中有以下模板可供选择
 
 1. rollup: rollup npm project (ts + rollup + esbuild + github workflow)
 2. lerna: lerna monorepo project (typescript + lerna + rollup)
-3. webpack: 包含webpack、babel、eslint、commitlint
-4. webpack css模式：默认模式 + css和less支持
-5. webpack typescript：默认模式 + ts 支持
-6. sener: 基于sener的http 服务其最佳实践
-7. npm包定制版本2: typescript + webpack, 自动生成toc和npm目录
-8. npm包定制版本: typescript + less + jest + webpack
-9. vue: vue2.x + vue-router + vuex
-10. vue3: vue3 + typescript + vue-router4 + vuex4
-11. react: react17 + typescript + redux + sass
-12. node-es6: node + express + es6 + webpac
-13. 原始模式：不推荐
+3. vite: Vite project (vite + vue3 + vue-router + pinia + ts)
+4. webpack: 包含webpack、babel、eslint、commitlint
+5. webpack css模式：默认模式 + css和less支持
+6. webpack typescript：默认模式 + ts 支持
+7. sener: 基于sener的http 服务其最佳实践
+8. npm包定制版本2: typescript + webpack, 自动生成toc和npm目录
+9. npm包定制版本: typescript + less + jest + webpack
+10. vue: vue2.x + vue-router + vuex
+11. vue3: vue3 + typescript + vue-router4 + vuex4
+12. react: react17 + typescript + redux + sass
+13. node-es6: node + express + es6 + webpac
+14. 原始模式：不推荐
 
 ### 2.1 使用github仓库
 

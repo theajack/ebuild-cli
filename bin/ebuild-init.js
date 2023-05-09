@@ -24,7 +24,7 @@ const gits = {
         url: 'github:theajack/ebuild-vite-vue3',
         renderPackage: false,
         renderBuild: false,
-        name: 'Vite (vite + vue3 + vue-router + pinia + ts)',
+        name: 'Vite project (vite + vue3 + vue-router + pinia + ts)',
     },
     'webpack': {
         url: 'github:theajack/ebuild-template-light',
