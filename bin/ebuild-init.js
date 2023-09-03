@@ -142,13 +142,12 @@ function main () {
     if (program.args.length < 1) {
         return program.help();
     } else {
-        init(program.args[0]);
+        init(program.args[0], program.args[1]);
     }
 }
 
 
-function init (name) {
-    let url = '';
+function init (name, url = '') {
     if (name.includes('/')) {
         url = `github:${name}`;
         name = name.substr(name.lastIndexOf('/') + 1);
@@ -185,6 +184,12 @@ function init (name) {
     }
 
     inquirer.prompt(options).then(answers => {
+
+        if (gits[url]) {
+            answers.mode = url;
+            url = '';
+        }
+
         answers.libName = formatName(answers.name);
         const object = (!url) ? gits[answers.mode] : {
             url,
