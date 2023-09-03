@@ -68,6 +68,12 @@ const gits = {
         renderBuild: false,
         name: 'webpack npm package (typescript + less + jest + webpack)',
     },
+    'alins': {
+        url: 'github:alinsjs/ebuild-template-alins',
+        renderPackage: true,
+        renderBuild: true,
+        name: 'alins (alins + vite)',
+    },
     'vue': {
         url: 'github:theajack/ebuild-template-vue',
         renderPackage: true,
