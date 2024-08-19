@@ -8,28 +8,24 @@ const {render} = require('./lib/download');
 const download = require('download-git-repo');
 
 const gits = {
+    'vite-npm': {
+        url: 'github:theajack/ebuild-vite-npm',
+        name: 'vite npm project (vite + typescript)',
+    },
     'rollup': {
         url: 'github:theajack/ebuild-template-rollup',
-        renderPackage: false,
-        renderBuild: false,
         name: 'rollup npm project (typescript + rollup + esbuild)',
     },
     'lerna monorepo': {
         url: 'github:theajack/ebuild-template-lerna',
-        renderPackage: false,
-        renderBuild: false,
         name: 'lerna monorepo project (typescript + lerna + rollup)',
     },
     'rollup-node': {
         url: 'github:theajack/ebuild-template-node-npm',
-        renderPackage: false,
-        renderBuild: false,
         name: 'rollup nodejs npm project (typescript + rollup + nodejs + esbuild)',
     },
     'vite': {
         url: 'github:theajack/ebuild-vite-vue3',
-        renderPackage: false,
-        renderBuild: false,
         name: 'Vite project (vite + vue3 + vue-router + pinia + ts)',
     },
     'webpack': {
