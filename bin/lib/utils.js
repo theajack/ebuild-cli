@@ -57,7 +57,33 @@ function run () {
     }
 }
 
+const fs = require('fs');
+
+/**
+ *
+ * @param {{
+*  name: string,
+*  description: string,
+*  author: string,
+* }} answers
+*/
+function renderPkgJson (answers) {
+    try {
+        const fileName = answers.name + '/package.json';
+        const json = JSON.parse(fs.readFileSync(fileName, 'utf-8'));
+        Object.assign(json, {
+            name: answers.name,
+            description: answers.description,
+            author: answers.author,
+        });
+        fs.writeFileSync(fileName, JSON.stringify(json, null, 4), 'utf-8');
+    } catch (err) {
+        
+    }
+}
+
 module.exports = {
+    renderPkgJson,
     gen,
     count,
     run
