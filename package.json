@@ -1,23 +1,36 @@
 {
-  "name": "ebuild-template-alins",
-  "private": true,
-  "version": "0.0.0",
+  "name": "node-es6-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "dev": "vite --host",
-    "lint": "eslint --fix",
-    "build": "vite build",
-    "preview": "vite preview"
+    "dev-webpack": "npx webpack --config webpack-config/dev.js --watch &",
+    "dev-nodemon": "npx nodemon dist/backend.js &",
+    "dev": "npx concurrently -r \"npm:dev-webpack\" \"npm:dev-nodemon\"",
+    "prod": "npx webpack --config webpack-config/prod.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theajack/node-es6-demo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theajack/node-es6-demo/issues"
+  },
+  "homepage": "https://github.com/theajack/node-es6-demo#readme",
+  "dependencies": {},
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.4.0",
-    "@typescript-eslint/parser": "^5.4.0",
-    "@vitejs/plugin-legacy": "^4.0.2",
-    "alins": "^0.0.34",
-    "eslint": "^8.2.0",
-    "less": "^4.1.3",
-    "typescript": "^4.9.3",
-    "typescript-eslint": "0.0.1-alpha.0",
-    "vite": "^4.2.0",
-    "vite-plugin-alins": "^0.0.34"
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.2",
+    "concurrently": "^5.3.0",
+    "eslint": "^7.18.0",
+    "eslint-loader": "^4.0.2",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7",
+    "webpack": "^5.17.0",
+    "webpack-cli": "^4.4.0"
   }
 }

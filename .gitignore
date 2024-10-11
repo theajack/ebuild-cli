@@ -1,8 +1,2 @@
-pnpm-debug.log*
-.vscode
-.DS_Store
 node_modules
-dist
-.npmrc
-pnpm-lock.yaml
-nodejs
+.DS_Store

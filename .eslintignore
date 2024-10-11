@@ -1,6 +1,2 @@
+node_modules
 dist
-docs
-public
-index.html
-*.min.js
-tween.js
