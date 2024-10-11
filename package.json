@@ -1,36 +1,50 @@
 {
-  "name": "node-es6-demo",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "dev-webpack": "npx webpack --config webpack-config/dev.js --watch &",
-    "dev-nodemon": "npx nodemon dist/backend.js &",
-    "dev": "npx concurrently -r \"npm:dev-webpack\" \"npm:dev-nodemon\"",
-    "prod": "npx webpack --config webpack-config/prod.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/theajack/node-es6-demo.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/theajack/node-es6-demo/issues"
-  },
-  "homepage": "https://github.com/theajack/node-es6-demo#readme",
-  "dependencies": {},
-  "devDependencies": {
-    "@babel/core": "^7.12.10",
-    "@babel/preset-env": "^7.12.11",
-    "babel-eslint": "^10.1.0",
-    "babel-loader": "^8.2.2",
-    "concurrently": "^5.3.0",
-    "eslint": "^7.18.0",
-    "eslint-loader": "^4.0.2",
-    "express": "^4.17.1",
-    "nodemon": "^2.0.7",
-    "webpack": "^5.17.0",
-    "webpack-cli": "^4.4.0"
-  }
+    "name": "ts-demo",
+    "version": "0.0.1",
+    "description": "idcard",
+    "scripts": {
+        "dev": "webpack-dev-server --open --config webpack-config/dev.js",
+        "build": "webpack --config webpack-config/build.js",
+        "lint": "eslint src --ext js"
+    },
+    "author": "theajack",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/theajack/ebuild-cli"
+    },
+    "keywords": [
+        "ebuild-cli"
+    ],
+    "license": "MIT",
+    "devDependencies": {
+        "@babel/core": "^7.6.4",
+        "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
+        "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+        "@babel/preset-env": "^7.6.3",
+        "@commitlint/cli": "^8.2.0",
+        "@commitlint/config-conventional": "^8.2.0",
+        "@typescript-eslint/eslint-plugin": "^2.14.0",
+        "@typescript-eslint/parser": "^2.14.0",
+        "babel-eslint": "^10.0.3",
+        "babel-loader": "^8.0.6",
+        "babel-plugin-transform-object-rest-spread": "^6.26.0",
+        "eslint": "^6.8.0",
+        "eslint-config-standard": "^14.1.0",
+        "eslint-loader": "^3.0.2",
+        "eslint-plugin-import": "^2.18.2",
+        "eslint-plugin-node": "^10.0.0",
+        "eslint-plugin-promise": "^4.2.1",
+        "husky": "^3.0.9",
+        "lint-staged": "^9.4.2",
+        "ts-loader": "^6.2.1",
+        "typescript": "^3.7.4",
+        "webpack": "^4.41.2",
+        "webpack-cli": "^3.3.9",
+        "webpack-dev-server": "^3.8.2"
+    },
+    "husky": {
+        "hooks": {
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+        }
+    }
 }

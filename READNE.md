@@ -1,1 +1,0 @@
-## A ES6 + webpack + node express demo for [ebuild-cli](https://github.com/theajack/ebuild-cli)
