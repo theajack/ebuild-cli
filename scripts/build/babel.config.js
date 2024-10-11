@@ -1,6 +1,6 @@
 /*
- * @Author: tackchen
- * @Date: 2022-09-30 09:43:03
+ * @Author: chenzhongsheng
+ * @Date: 2022-12-02 22:35:38
  * @Description: Coding something
  */
 module.exports = {
@@ -17,5 +17,8 @@ module.exports = {
         ],
         '@babel/preset-typescript',
     ],
+    'ignore': [
+        'node_modules/**'
+    ]
 };
 

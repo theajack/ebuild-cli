@@ -1,22 +1,8 @@
 <!--
- * @Author: tackchen
- * @Date: 2022-08-03 21:24:33
+ * @Author: chenzhongsheng
+ * @Date: 2023-02-13 17:02:26
  * @Description: Coding something
 -->
-## ebuild-template-rollup
+# [ebuild-templat-node-npm](https://github.com/theajack/ebuild-templat-node-npm)
 
-[ebuild-cli](https://github.com/theajack/ebuild-template-rollup)
-
-## quickstart
-
-```
-npm i -g pnpm lerna
-```
-
-```
-pnpm i
-
-pnpm run dev
-
-pnpm run publish -- x.x.x
-```
+## [ebuild-cli](https://github.com/theajack/ebuild-cli)
