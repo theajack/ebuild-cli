@@ -1,36 +1,36 @@
-### typescript运行环境demo
+### This is a project build with [EBuild-Cli](https://github.com/theajack/ebuild-cli)
 
-这是一个支持eslint的typescript运行环境
-
-只需要克隆，安装依赖就可以运行起来了，毕竟webpack、eslint、babel、ts的配置搞起来还是比较麻烦的～
-
-在你喜欢的目录运行：
+### Install dependencies
 
 ```
-git clone https://github.com/theajack/ts-demo.git
+npm install
 ```
 
-```
-cd ts-demo
-```
-
-使用淘宝镜像安装依赖
+use taobao repository
 
 ```
-npm i --registry=https://registry.npm.taobao.org
+npm install --registry https://registry.npm.taobao.org
 ```
 
-使用 webpack-dev-server 运行demo
+### Init git repository
+
+```
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin {Your remote git repository address}
+git push -u origin master
+```
+
+### Commond
 
 ```
 npm run dev
-```
-
-打包：
-
-```
 npm run build
+npm run publish
+npm run lint
 ```
 
+### Vscode plugin
 
-项目中有一些用不到的东西可以删除，代码就不介绍了，后面就到你自己发挥啦！
+Install 'ESLint' plugin

@@ -7,10 +7,6 @@
       "html",
       "vue",
       {
-        "language": "typescript",
-        "autoFix": true
-      },
-      {
         "language": "html",
         "autoFix": true
       },

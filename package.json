@@ -1,19 +1,28 @@
 {
-    "name": "ts-demo",
+    "name": "{{name}}",
     "version": "0.0.1",
-    "description": "idcard",
+    "description": "{{description}}",
+    "main": "{{name}}.min.js",
+    "unpkg": "{{name}}.min.js",
+    "jsdelivr": "{{name}}.min.js",
+    "typings": "index.d.ts",
+    "bugs": {
+        "url": ""
+    },
+    "homepage": "",
     "scripts": {
         "dev": "webpack-dev-server --open --config webpack-config/dev.js",
+        "start": "npm run dev",
         "build": "webpack --config webpack-config/build.js",
+        "publish": "npm publish npm",
         "lint": "eslint src --ext js"
     },
-    "author": "theajack",
+    "author": "{{author}}",
     "repository": {
         "type": "git",
-        "url": "https://github.com/theajack/ebuild-cli"
+        "url": ""
     },
     "keywords": [
-        "ebuild-cli"
     ],
     "license": "MIT",
     "devDependencies": {
@@ -23,25 +32,25 @@
         "@babel/preset-env": "^7.6.3",
         "@commitlint/cli": "^8.2.0",
         "@commitlint/config-conventional": "^8.2.0",
-        "@typescript-eslint/eslint-plugin": "^2.14.0",
-        "@typescript-eslint/parser": "^2.14.0",
         "babel-eslint": "^10.0.3",
         "babel-loader": "^8.0.6",
         "babel-plugin-transform-object-rest-spread": "^6.26.0",
-        "eslint": "^6.8.0",
+        "eslint": "^6.5.1",
         "eslint-config-standard": "^14.1.0",
         "eslint-loader": "^3.0.2",
         "eslint-plugin-import": "^2.18.2",
         "eslint-plugin-node": "^10.0.0",
         "eslint-plugin-promise": "^4.2.1",
+        "gulp": "^4.0.2",
+        "gulp-babel": "^8.0.0",
+        "gulp-rename": "^2.0.0",
         "husky": "^3.0.9",
         "lint-staged": "^9.4.2",
-        "ts-loader": "^6.2.1",
-        "typescript": "^3.7.4",
         "webpack": "^4.41.2",
         "webpack-cli": "^3.3.9",
         "webpack-dev-server": "^3.8.2"
     },
+    "dependencies": {},
     "husky": {
         "hooks": {
             "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
