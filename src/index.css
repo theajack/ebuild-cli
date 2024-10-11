@@ -1,0 +1,17 @@
+body, html {
+    background-color: #222;
+    text-align: center;
+    color: #fff;
+}
+button {
+    padding: 10px;
+    background-color: #222;
+    outline: none;
+    color: #fff;
+    border: 1px solid #666;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #333;
+}

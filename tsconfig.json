@@ -1,33 +1,21 @@
 {
-    "compilerOptions": {
-        "baseUrl": ".",
-        "outDir": "dist",
-        "sourceMap": false,
-        "target": "es2016",
-        "module": "esnext",
-        "moduleResolution": "node",
-        "allowJs": true,
-        "noUnusedLocals": true,
-        "strictNullChecks": true,
-        "noImplicitAny": true,
-        "noImplicitThis": true,
-        "experimentalDecorators": true,
-        "resolveJsonModule": true,
-        "esModuleInterop": true,
-        "removeComments": false,
-        "jsx": "preserve",
-        "lib": ["esnext", "dom"],
-        "types": ["node"],
-        "rootDir": ".",
-        "noEmit": false,
-        "paths": {}
-    },
-    "include": [
-        "src/**/*",
-        ".eslintrc.js",
-        "scripts/**/*"
-    ],
-    "exclude": [
-        "./node_modules"
-    ]
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "strict": true,
+    "jsx": "preserve",
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "lib": ["ESNext", "DOM"],
+    "skipLibCheck": true,
+    "noEmit": true,
+    "types": ["vite/client", "alins"]
+
+  },
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }
