@@ -1,5 +1,2 @@
-/public/bundle.js
-/public/index.html
-/npm
-/cdn
-**/*.html
+node_modules
+dist
