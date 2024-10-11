@@ -1,48 +1,48 @@
 {
-    "name": "ebuild-cli",
-    "version": "0.2.12",
-    "description": "A project for build a project easily",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "bin": {
-        "ebuild": "bin/ebuild.js",
-        "ebuild-init": "bin/ebuild-init.js",
-        "ebuild-run": "bin/ebuild-run.js",
-        "ebuild-count": "bin/ebuild-count.js",
-        "ebuild-gen": "bin/ebuild-gen.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/theajack/ebuild-cli.git"
-    },
-    "keywords": [
-        "Build-project",
-        "Easy-build"
-    ],
-    "author": "theajack <theajack@qq.com>",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/theajack/ebuild-cli/issues"
-    },
-    "dependencies": {
-        "chalk": "^3.0.0",
-        "commander": "^4.0.1",
-        "copy-dir": "^1.3.0",
-        "count-code-line": "^0.0.4",
-        "download-git-repo": "^3.0.2",
-        "inquirer": "^7.0.1",
-        "lite-server": "^2.5.4",
-        "log-progress": "^1.0.5"
-    },
-    "homepage": "https://github.com/theajack/ebuild-cli#readme",
-    "devDependencies": {
-        "@babel/core": "^7.6.4",
-        "babel-eslint": "^10.0.3",
-        "eslint": "^6.5.1"
-    },
-    "publishConfig": {
-        "registry": "https://registry.npmjs.org"
+  "name": "ebuild-vite-npm",
+  "ebuild": {
+    "libName": "ViteNpm",
+    "fileName": "vite-npm",
+    "publish": {
+      "name": "vite-npm",
+      "version": "0.0.1",
+      "description": "vite-npm",
+      "repository": "",
+      "keywords": [],
+      "author": "",
+      "license": "",
+      "bugs": {
+          "url": ""
+      },
+      "homepage": "",
+      "publishConfig": {
+          "registry": "https://registry.npmjs.org/",
+          "tag": "latest"
+      }
     }
+  },
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "vite --host",
+    "lint": "eslint --fix",
+    "build": "vite build -m=npm",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.21.4",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@types/node": "^22.2.0",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
+    "@vitejs/plugin-legacy": "^4.0.2",
+    "eslint": "^8.2.0",
+    "terser": "^5.16.8",
+    "typescript": "^4.9.3",
+    "typescript-eslint": "0.0.1-alpha.0",
+    "up-fs": "^0.0.1",
+    "vite": "^4.2.0",
+    "dts-bundle-generator": "^9.5.1"
+  },
+  "dependencies": {}
 }

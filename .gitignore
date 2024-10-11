@@ -1,4 +1,6 @@
+pnpm-debug.log*
 node_modules
-.DS_Store
-
+dist
+npm
 packages
+.DS_Store
