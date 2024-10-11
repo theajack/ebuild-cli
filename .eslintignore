@@ -1,4 +1,11 @@
 node_modules
-scripts/dev/*.js
-*.html
-**/libs/*.js
+dist
+npm
+cnchar.min.js
+src_import_version
+!.vuepress
+docs
+vuepress/config.js
+**/*.vue
+**/*.html
+src/react-app-env.d.ts
