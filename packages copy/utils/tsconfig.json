@@ -16,17 +16,18 @@
         "esModuleInterop": true,
         "removeComments": false,
         "jsx": "preserve",
-        "lib": ["esnext", "dom"],
-        "types": ["node"],
-        "rootDir": ".",
+        "lib": [
+            "esnext",
+            "dom"
+        ],
+        "types": [
+            "node"
+        ],
+        "rootDir": "../..",
         "noEmit": false,
         "paths": {}
     },
     "include": [
-        "packages/*/src/**/*",
-        ".eslintrc.js",
-        "babel.config.js",
-        "scripts/**/*",
         "src/**/*"
     ],
     "exclude": [

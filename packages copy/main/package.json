@@ -1,0 +1,21 @@
+{
+    "name": "@lerna-demo/main",
+    "version": "0.0.1",
+    "description": "lerna demo",
+    "main": "src/index.ts",
+    "typings": "src/index.ts",
+    "repository": "git@github.com:theajack/ebuild-template-lerna.git",
+    "author": "tackchen <theajack@qq.com>",
+    "scripts": {
+        "build": "node ../../scripts/build/build.js main"
+    },
+    "license": "MIT",
+    "dependencies": {
+        "@lerna-demo/utils": "^0.0.1"
+    },
+    "publishConfig": {
+        "registry": "https://registry.npmjs.org/"
+    },
+    "unpkg": "dist/demo-main.min.js",
+    "jsdelivr": "dist/demo-main.min.js"
+}

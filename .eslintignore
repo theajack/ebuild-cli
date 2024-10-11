@@ -2,6 +2,3 @@ node_modules
 scripts/dev/*.js
 *.html
 **/libs/*.js
-dist
-*.bundle.js
-*.min.js
