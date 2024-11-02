@@ -1,5 +1,7 @@
-/public/bundle.js
-/public/index.html
-/npm
-/cdn
-/dist
+node_modules
+*.html
+dist
+cdn
+*.min.js
+
+publish

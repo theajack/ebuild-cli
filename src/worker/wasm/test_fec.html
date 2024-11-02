@@ -1,0 +1,106 @@
+<!--
+ * @Author: chenzhongsheng
+ * @Date: 2023-10-23 12:25:07
+ * @Description: Coding something
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="module">
+//         import init, {
+//             init_shared_buffer,
+//             test_fec
+//         } from './pkg/ebuild_wasm.js';
+
+//         const MaxSize = 4000;
+
+//         const Stat = (()=>{
+//     let startM = 0;
+//     let d = 0;
+//     let m = 0;
+
+//     let count = 0;
+//     let mm_count = 0;
+
+//     let sum_d = 0;
+//     let sum_m = 0;
+
+//     let info = document.createElement('pre');
+//     document.body.appendChild(info);
+
+//     let loopIndex = 0;
+
+//     return {
+//         loop(fn){
+//             fn();
+//             loopIndex++;
+//             setTimeout(()=>{
+//                 if(loopIndex < 20){
+//                     this.loop(fn)
+//                 }
+//             }, 500);
+//         },
+//         start(){
+//             m = performance.memory.usedJSHeapSize;
+//             if(d === 0){
+//                 startM = m;
+//             }
+//             d = Date.now();
+//         },
+//         end(){
+//             let ms = Date.now() - d;
+//             setTimeout(()=>{
+//                 let cur_m = performance.memory.usedJSHeapSize;
+//                 let mm = cur_m - m;
+    
+//                 let s = [`Test Case: packetSize=(${MaxSize-100}, ${MaxSize}); loop=${MaxSize}`];
+                
+//                 s.push(`log_time: ${ms}`);
+//                 count ++;
+//                 sum_d += ms;
+
+//                 if(mm < 0){
+//                     s.push(`log_memory: 垃圾回收`);
+//                 }else{
+//                     s.push(`log_memory: ${mm}`);
+//                     sum_m += mm;
+//                     mm_count ++;
+//                 }
+
+
+//                 s.push(`test count: total_count=${count}; memory_count=${mm_count}`, );
+//                 s.push(`log_time_avg: ${sum_d/count}`);
+//                 s.push(`log_memory_avg: ${sum_m/mm_count}`);
+//                 s.push(`log_total_memory: ${cur_m - startM}`);
+//                 info.innerText = s.join('\n')
+//             }, 0)
+//         },
+//     }
+// })()
+// let handler = ()=>{
+//     Stat.loop(test_fec);
+//     document.removeEventListener('click', handler);
+// }
+// document.addEventListener('click', handler)
+// window.test_fec = test_fec;
+//         let wasmArr = null;
+//         let d = 0;
+//         let m = 0;
+//         window.log_time = Stat.start
+//         window.log_time_end = Stat.end
+//         // window.log_str = (str)=>{
+//         //     console.log('log_info:', str);
+//         // }
+
+//         init().then(()=>{
+//         })
+
+
+    </script>
+</body>
+</html>

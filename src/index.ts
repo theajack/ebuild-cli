@@ -1,17 +1,14 @@
-import hello from './demo';
-import {b, fn} from './a';
+/*
+ * @Author: chenzhongsheng
+ * @Date: 2024-11-02 07:35:00
+ * @Description: Coding something
+ */
+import { WorkerMessageType } from './common/types/enum';
+import { RenderProxy } from './render/render-proxy';
 
-const main = () => {
-    window.console.log(hello);
-    window.alert(hello);
-    [1, 2, 3].forEach((num) => {
-        window.console.log(num);
-    });
-    class a {
+const renderProxy = new RenderProxy();
 
-    }
-    console.log(new a(), b, fn());
-};
-
-
-main();
+renderProxy.sendMessage({
+    type: WorkerMessageType.Test,
+    data: { a: 1 }
+});

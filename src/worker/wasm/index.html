@@ -1,0 +1,55 @@
+<!--
+ * @Author: chenzhongsheng
+ * @Date: 2023-10-23 12:25:07
+ * @Description: Coding something
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="module">
+        import init, {
+            init_shared_buffer,
+            send_to_wasm,
+            // get_test_header,
+        } from './pkg/ebuild_wasm.js';
+
+        let wasmArr = null;
+        window.log = (n)=>{
+            console.log('log from wasm:', n);
+        }
+        window.logStr = (n)=>{
+            console.log('log from wasm:', n);
+        }
+        window.on_message = (n)=>{
+            console.log('on_message:', n);
+            for(let i=0;i<n;i++){
+                console.log('on_message:', wasmArr[i]);
+            }
+        }
+
+        init().then(()=>{
+            console.warn('init success');
+            let buffer = init_shared_buffer(array => {
+                // console.timeEnd('Rust new WasmMemBuffer')
+                wasmArr = array;
+                console.warn('wasmArr', array);
+            });
+
+            sendMessage([3,4,5])
+            window.wasmArr = wasmArr;
+        })
+
+        function sendMessage(arr){
+            for(let i=0;i<arr.length;i++){
+                wasmArr[i] = arr[i];
+            }
+            send_to_wasm(arr.length, 0);
+        }
+    </script>
+</body>
+</html>
