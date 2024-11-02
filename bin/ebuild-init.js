@@ -13,6 +13,7 @@ const gits = {
     'vite-npm': 'vite npm project (vite + typescript)',
     'rollup': 'rollup npm project (typescript + rollup + esbuild)',
     'rollup-node': 'rollup nodejs npm project (typescript + rollup + nodejs + esbuild)',
+    'rust-wasm': 'rust wasm project (WebAssembly + Worker + Vite + ts)',
     'lerna-monorepo': 'lerna monorepo project (typescript + lerna + rollup)',
     'react-ts': 'react (react17 + typescript + redux + sass)',
     'sener': 'Sener http server project best practices',
