@@ -90,9 +90,9 @@ function generatePackage () {
     writeFileSync('./npm/package.json', JSON.stringify({
         ...ebuild.publish,
         dependencies,
-        'main': `${fileName}.min.js`,
-        'unpkg': `${fileName}.min.js`,
-        'jsdelivr': `${fileName}.min.js`,
-        'typings': `${fileName}.min.d.ts`,
+        'main': `${fileName}.es.min.js`,
+        'unpkg': `${fileName}.iife.min.js`,
+        'jsdelivr': `${fileName}.iife.min.js`,
+        'typings': `${fileName}.es.min.d.ts`,
     }, null, 2), 'utf8');
 }
