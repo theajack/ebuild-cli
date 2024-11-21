@@ -57,7 +57,7 @@ function geneBuildConfig (): UserConfig {
             lib: {
                 entry: resolve(__dirname, 'src/index.ts'), // 打包的入口文件
                 name: ebuild.libName, // 包名
-                formats: ['es', 'iife'], // 打包模式，默认是es和umd都打
+                formats: ['es', 'iife', 'cjs'], // 打包模式，默认是es和umd都打
                 fileName: (format: string) => `${fileName}.${format}.min.js`,
             },
             rollupOptions: {
@@ -90,7 +90,8 @@ function generatePackage () {
     writeFileSync('./npm/package.json', JSON.stringify({
         ...ebuild.publish,
         dependencies,
-        'main': `${fileName}.es.min.js`,
+        'main': `${fileName}.cjs.min.js`,
+        'module': `${fileName}.es.min.js`,
         'unpkg': `${fileName}.iife.min.js`,
         'jsdelivr': `${fileName}.iife.min.js`,
         'typings': `${fileName}.es.min.d.ts`,
