@@ -8,8 +8,7 @@ import {babel} from '@rollup/plugin-babel';
 import {resolve} from 'path';
 import {version, ebuild, dependencies} from './package.json';
 import {execSync} from 'child_process';
-import upfs from 'up-fs';
-import {writeFileSync} from 'fs';
+import {writeFileSync, copyFileSync} from 'fs';
 
 const fileName = ebuild.fileName || ebuild.publish.name;
 const pubVersion = ebuild.publish.version || version;
@@ -77,15 +76,9 @@ function geneBuildConfig (): UserConfig {
 }
 
 function generatePackage () {
-    
-    upfs.copyFile({
-        src: './README.md',
-        target: './npm/README.md',
-    });
-    upfs.copyFile({
-        src: './LICENSE',
-        target: './npm/LICENSE',
-    });
+
+    copyFileSync('./README.md', './npm/README.md');
+    copyFileSync('./LICENSE', './npm/LICENSE');
 
     writeFileSync('./npm/package.json', JSON.stringify({
         ...ebuild.publish,
