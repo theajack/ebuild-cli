@@ -6,15 +6,18 @@
     "publish": {
       "name": "vite-npm",
       "version": "0.0.1",
-      "description": "vite-npm",
-      "repository": "",
-      "keywords": [],
-      "author": "",
+      "description": "",
+      "repository": {
+          "type": "git",
+          "url": "https://github.com/USER/REPO"
+      },
+      "keywords": [""],
+      "author": "USER",
       "license": "",
       "bugs": {
-          "url": ""
+          "url": "https://github.com/USER/REPO/issues"
       },
-      "homepage": "",
+      "homepage": "https://USER.github.io/REPO",
       "publishConfig": {
           "registry": "https://registry.npmjs.org/",
           "tag": "latest"
