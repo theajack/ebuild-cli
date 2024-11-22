@@ -6,7 +6,7 @@
 import {UserConfig, defineConfig} from 'vite';
 import {babel} from '@rollup/plugin-babel';
 import {resolve} from 'path';
-import {version, ebuild, dependencies} from './package.json';
+import {version, ebuild, dependencies, name} from './package.json';
 import {execSync} from 'child_process';
 import {writeFileSync, copyFileSync} from 'fs';
 
@@ -18,15 +18,19 @@ export default defineConfig(({mode}) => {
     const isDev = mode === 'development';
     console.log('defineConfig', mode, isDev);
 
+    const config = ({
+        'development': geneDevConfig,
+        'sdk': geneBuildConfig,
+        'app': geneBuildAppConfig
+    })[mode]();
+
     return {
-        plugins: [
-        ],
         define: {
             __DEV__: isDev,
             __VERSION__: `"${pubVersion}"`,
             __WIN__: 'window',
         },
-        ...(isDev ? geneDevConfig() : geneBuildConfig())
+        ...config,
     };
 });
 // ! Dev VApp 时的配置
@@ -37,6 +41,15 @@ function geneDevConfig (): UserConfig {
             host: '0.0.0.0',
             port: 5173,
         },
+    };
+}
+
+function geneBuildAppConfig (): UserConfig {
+    return {
+        base: `/${name}`,
+        build: {
+            outDir: './docs'
+        }
     };
 }
 
