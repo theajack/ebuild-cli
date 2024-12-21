@@ -8,6 +8,9 @@ module.exports = {
     plugins: ['@typescript-eslint'],
     'globals': {
         'globalThis': true,
+        '__DEV__': true,
+        '__VERSION__': true,
+        '__WIN__': true,
     },
     env: {
         'browser': true,
