@@ -6,9 +6,11 @@
 import {UserConfig, defineConfig} from 'vite';
 import {babel} from '@rollup/plugin-babel';
 import {resolve} from 'path';
-import {version, ebuild, dependencies, name} from './package.json';
+import pkg from './package.json';
 import {execSync} from 'child_process';
 import {writeFileSync, copyFileSync} from 'fs';
+
+const {version, ebuild, dependencies = {}, name} = pkg;
 
 const fileName = ebuild.fileName || ebuild.publish.name;
 const pubVersion = ebuild.publish.version || version;
@@ -28,7 +30,7 @@ export default defineConfig(({mode}) => {
         define: {
             __DEV__: isDev,
             __VERSION__: `"${pubVersion}"`,
-            __WIN__: 'window',
+            __WIN__: 'globalThis',
         },
         ...config,
     };

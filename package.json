@@ -27,6 +27,7 @@
   "private": true,
   "version": "0.0.1",
   "scripts": {
+    "init": "node build/init.js",
     "dev": "vite --host",
     "lint": "eslint --fix",
     "build": "vite build -m=sdk",
