@@ -11,6 +11,7 @@ function main () {
     const v = process.argv[2];
     const [user, repo] = v.split('/');
 
+    pkg.name = repo;
     pkg.ebuild.libName = repo.split('-').map(v => v[0].toUpperCase() + v.slice(1)).join('');
     pkg.ebuild.fileName = repo;
     pkg.ebuild.publish.name = repo;
