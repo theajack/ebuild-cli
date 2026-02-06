@@ -8,6 +8,7 @@ const {renderPkgJson} = require('./lib/utils');
 const download = require('download-git-repo');
 
 const gits = {
+    'vite-monorepo-2': 'Vite Monorepo 2.0 (vite7 + vue3.5)',
     'vite-monorepo': 'Vite Monorepo (vite + typescript)',
     'vite-vue': 'Vite project (vite + vue3 + vue-router + pinia + ts)',
     'vite-npm': 'vite npm project (vite + typescript)',
