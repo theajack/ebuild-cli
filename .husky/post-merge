@@ -1,0 +1,2 @@
+# 拉代码或者merge代码之后同步子模块变更
+git submodule update

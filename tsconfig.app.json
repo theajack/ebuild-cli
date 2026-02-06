@@ -1,0 +1,36 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    "types": ["vite/client", "@types/node"],
+    "module": "es2020",
+    "allowJs": true,
+    "lib": ["es2022", "dom"],
+    "noEmit": false,
+    "declaration": true, // 需要设置为 true 来支持类型
+    "declarationDir": "dist", // 类型文件的导出目录
+    "emitDeclarationOnly": true, // 只生成类型文件
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "erasableSyntaxOnly": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true,
+    "paths": {
+    }
+  },
+  "include": [
+    "packages/**/*.ts", 
+    "packages/**/*.tsx", 
+    "packages/**/*.vue", 
+    "submodules/**/*.ts", 
+    "submodules/**/*.tsx", 
+    "submodules/**/*.vue", 
+    "dev/**/*",
+    "docs/package-template/**/*",
+    "scripts/**/*",
+    "vite.config.ts",
+    "vitest.config.ts"
+  ]
+}
