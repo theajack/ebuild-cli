@@ -4,10 +4,65 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>start-template</title>
+    <title>Dev Entry</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      :root {
+        --bg: #1a1a2e;
+        --bg-card: #16213e;
+        --bg-hover: #1a3a6a;
+        --border: #2a2a4a;
+        --text: #e0e0e0;
+        --text-dim: #8888a0;
+        --accent: #53a8f5;
+        --accent-hover: #7dc0ff;
+        --group-color: #f0c040;
+      }
+      html, body { min-height: 100vh; background: var(--bg); color: var(--text); font-family: -apple-system, 'Segoe UI', sans-serif; }
+      .container { max-width: 720px; margin: 0 auto; padding: 48px 24px; }
+      h1 { font-size: 22px; font-weight: 600; margin-bottom: 32px; letter-spacing: 0.5px; color: var(--text); }
+      .group { margin-bottom: 24px; }
+      .group-title {
+        font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
+        color: var(--group-color); padding: 0 0 8px 0;
+        border-bottom: 1px solid var(--border); margin-bottom: 4px;
+      }
+      .group-list { list-style: none; }
+      .group-list li { border-bottom: 1px solid rgba(255,255,255,0.04); }
+      .group-list a {
+        display: flex; align-items: center; gap: 10px;
+        padding: 10px 12px; color: var(--accent);
+        text-decoration: none; font-size: 14px;
+        transition: background 0.15s, color 0.15s;
+        border-radius: 4px;
+      }
+      .group-list a:hover { background: var(--bg-hover); color: var(--accent-hover); }
+      .group-list .label { color: var(--text); font-weight: 500; }
+      .group-list .path { color: var(--text-dim); font-size: 12px; margin-left: auto; font-family: Consolas, monospace; }
+    </style>
   </head>
   <body>
-<li><a href="/dev/entry/test">/dev/entry/test.html</a></li>
-<li><a href="/packages/demo/">/packages/demo/index.html</a></li>
+    <div class="container">
+      <h1>Dev Entry</h1>
+      <div class="group">
+        <div class="group-title">dev/entry</div>
+        <ul class="group-list">
+          <li><a href="/dev/entry/test"><span class="label">test</span><span class="path">/dev/entry/test.html</span></a></li>
+        </ul>
+      </div>
+      <div class="group">
+        <div class="group-title">demo</div>
+        <ul class="group-list">
+          <li><a href="/packages/demo/"><span class="label">index</span><span class="path">/packages/demo/index.html</span></a></li>
+        </ul>
+      </div>
+      <div class="group">
+        <div class="group-title">vue-demo</div>
+        <ul class="group-list">
+          <li><a href="/packages/vue-demo/"><span class="label">index</span><span class="path">/packages/vue-demo/index.html</span></a></li>
+        </ul>
+      </div>
+
+    </div>
   </body>
 </html>
